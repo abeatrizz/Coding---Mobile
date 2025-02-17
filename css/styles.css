@@ -10824,3 +10824,9 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+footer {
+  font-size: xx-small;
+  text-align: center;
+  background-color: #8810b1;
+  color: #DFF5FF;
+}
