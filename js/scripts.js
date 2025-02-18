@@ -53,3 +53,16 @@ document.addEventListener("DOMContentLoaded", function () {
         // window.location.href = "pagina-do-carrinho.html";  // Altere o URL para a página do carrinho
     });
 });
+
+document.querySelectorAll(".add-to-cart").forEach(button => {
+    button.addEventListener("click", () => {
+        let notification = document.createElement("div");
+        notification.innerHTML = "Produto adicionado ao carrinho!";
+        notification.classList.add("cart-notification");
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.remove();
+        }, 2000);
+    });
+});
