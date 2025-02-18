@@ -16,45 +16,48 @@
 </head>
 
 <body>
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container px-4 px-lg-5">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-          <li class="nav-item">
-            <a class="nav-link" href="#!">BELLANY</a>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#produtos">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Promoções</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Política de Privacidade</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Contato</a>
-          </li>
-        </ul>
-        <form class="d-flex me-5" style="gap: 5px">
-          <button class="btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">
-            <i class="bi-cart-fill me-1"></i>
-            Carrinho
-            <span id="cart-count" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-          </button>
-          <button class="btn btn-outline-dark ms-2" type="button" data-bs-toggle="modal" data-bs-target="#accountModal">
-            <i class="bi-person-circle me-1"></i>
-            Minha Conta
-          </button>
-        </form>
-      </div>
-    </div>
-  </nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">BELLANY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#produtos">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promocoes.html">Promoções</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="politica.html">Política de Privacidade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                </ul>
+                <form class="d-flex me-5" style="gap: 5px">
+                    <button class="btn btn-outline-dark" type="button" data-bs-toggle="modal"
+                        data-bs-target="#cartModal">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrinho
+                        <span id="cart-count" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                    <button class="btn btn-outline-dark ms-2" type="button" data-bs-toggle="modal"
+                        data-bs-target="#accountModal">
+                        <i class="bi-person-circle me-1"></i>
+                        Minha Conta
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
     <!-- Header-->
     <header class="bg-dark py-5">
@@ -269,7 +272,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                    <h5 class="modal-title" id="cartModalLabel">Carrinho</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -279,117 +282,82 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="checkoutBtn">Checkout</button>
+                    <button type="button" class="btn btn-primary" id="checkoutBtn">Finalizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Botão "Minha Conta" abre o modal -->
+    <button class="btn btn-outline-dark ms-2" type="button" data-bs-toggle="modal" data-bs-target="#accountModal">
+        <i class="bi-person-circle me-1"></i> Minha Conta
+    </button>
+
+    <!-- Modal de Login e Cadastro -->
+    <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="accountModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="accountModalLabel">Minha Conta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="loginForm">
+                        <h5>Entrar</h5>
+                        <input type="email" id="loginEmail" class="form-control mb-2" placeholder="Email">
+                        <input type="password" id="loginPassword" class="form-control mb-2" placeholder="Senha">
+                        <button class="btn btn-primary w-100" onclick="login()">Entrar</button>
+                        <p class="mt-2 text-center">
+                            <a href="#" onclick="toggleForms()">Criar uma conta</a>
+                        </p>
+                    </div>
+                    <div id="registerForm" style="display: none;">
+                        <h5>Criar Conta</h5>
+                        <input type="text" id="registerName" class="form-control mb-2" placeholder="Nome">
+                        <input type="email" id="registerEmail" class="form-control mb-2" placeholder="Email">
+                        <input type="password" id="registerPassword" class="form-control mb-2" placeholder="Senha">
+                        <button class="btn btn-success w-100" onclick="register()">Cadastrar</button>
+                        <p class="mt-2 text-center">
+                            <a href="#" onclick="toggleForms()">Já tenho uma conta</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-<div id="endereco" class="container-sm margin scrollMenu">
-    <div class="container-sm">
-        <div class="row">
-            <div class="col-12 col-md-6 mb-4">
-                <h3>Endereço e Contato:</h3>
-                <div class="card topBcgEnd my-2"></div>
-                <div class="container-sm">
-                    <address>
-                        <b>E-mail:</b> <a href="mailto:bellanymoda@gmail.com">bellanymoda@gmail.com</a><br>
-                        <b>Visite:</b> <a href="https://www.instagram.com/bellanymodass/">@bellanymodass</a><br>
-                        <b>Telefone: </b> (81) 98501-6654 <br>
-                        <b>Endereço: </b> Tv. do Março, 517, Aguazinha, Olinda - PE
-                    </address>
+    <div id="endereco" class="container-sm margin scrollMenu">
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <h3>Endereço e Contato:</h3>
+                    <div class="card topBcgEnd my-2"></div>
+                    <div class="container-sm">
+                        <address>
+                            <b>E-mail:</b> <a href="mailto:bellanymoda@gmail.com">bellanymoda@gmail.com</a><br>
+                            <b>Visite:</b> <a href="https://www.instagram.com/bellanymodass/">@bellanymodass</a><br>
+                            <b>Telefone: </b> (81) 98501-6654 <br>
+                            <b>Endereço: </b> Tv. do Março, 517, Aguazinha, Olinda - PE
+                        </address>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d987.7462880348048!2d-34.88534623037959!3d-8.000467471449685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab178ab270eea7%3A0x56962809dd616360!2sEstr.%20de%20Aguazinha%2C%20570%20-%20Aguazinha%2C%20Olinda%20-%20PE%2C%2053270-240!5e0!3m2!1spt-PT!2sbr!4v1739824219242!5m2!1spt-PT!2sbr"
-                    class="w-100" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="col-12 col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d987.7462880348048!2d-34.88534623037959!3d-8.000467471449685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab178ab270eea7%3A0x56962809dd616360!2sEstr.%20de%20Aguazinha%2C%20570%20-%20Aguazinha%2C%20Olinda%20-%20PE%2C%2053270-240!5e0!3m2!1spt-PT!2sbr!4v1739824219242!5m2!1spt-PT!2sbr"
+                        class="w-100" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<footer>
-    <samp>&copy; 2025 - Todos os direitos reservados | Bellany Moda</samp>
-  </footer>
+    <footer>
+        <samp>&copy; 2025 - Todos os direitos reservados | Bellany Moda</samp>
+    </footer>
 
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Custom theme JS-->
-<script src="js/scripts.js"></script>
-<!-- Custom Cart JS-->
-<script>
-    // Initialize cart as an empty array
-    let cart = [];
-
-    // Update cart display function
-    function updateCart() {
-        const cartCount = document.getElementById("cart-count");
-        const cartItemsContainer = document.getElementById("cart-items");
-
-        // Clear existing items
-        cartItemsContainer.innerHTML = '';
-
-        // Add each item to the cart modal
-        cart.forEach((item, index) => {
-            const listItem = document.createElement('div');
-            listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
-            listItem.innerHTML = `
-                  <span>${item.name} - $${item.price}</span>
-                  <button class="btn btn-danger btn-sm remove-item" data-index="${index}">Remove</button>
-              `;
-            cartItemsContainer.appendChild(listItem);
-        });
-
-        // Update the cart item count
-        cartCount.textContent = cart.length;
-    }
-
-    // Add product to cart function
-    function addToCart(event) {
-        const button = event.target;
-        // Ensure that we get the correct button even if an inner element is clicked
-        const targetButton = button.closest('.add-to-cart');
-        const productName = targetButton.getAttribute('data-product');
-        const productPrice = targetButton.getAttribute('data-price');
-        const productImage = targetButton.getAttribute('data-image');
-
-        // Add product to cart array
-        const newItem = {
-            name: productName,
-            price: productPrice,
-            image: productImage
-        };
-
-        cart.push(newItem);
-        updateCart();
-    }
-
-    // Remove product from cart function
-    function removeFromCart(event) {
-        const index = event.target.getAttribute('data-index');
-
-        // Remove item from the cart
-        cart.splice(index, 1);
-        updateCart();
-    }
-
-    // Event listener for adding items to the cart
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', addToCart);
-    });
-
-    // Event listener for removing items from the cart
-    document.getElementById("cart-items").addEventListener('click', function (event) {
-        if (event.target.classList.contains('remove-item')) {
-            removeFromCart(event);
-        }
-    });
-
-    // Update the cart when the page loads
-    updateCart();
-</script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom theme JS-->
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

@@ -1,68 +1,72 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let cart = [];  // Array para armazenar os itens do carrinho
+    let cart = [];  // Armazenar os itens do carrinho
 
-    // Função para atualizar o carrinho
     function updateCart() {
-        const cartCount = document.getElementById("cart-count");  // Contador de itens no carrinho
-        const cartItemsList = document.getElementById("cart-items");  // Lista de itens no carrinho
-        const totalPrice = document.getElementById("total-price");  // Total a ser exibido
+        const cartCount = document.getElementById("cart-count");
+        const cartItemsList = document.getElementById("cart-items");
+        const totalPrice = document.getElementById("total-price");
 
-        // Atualiza a contagem de itens no carrinho
         cartCount.textContent = cart.length;
-
-        // Limpar a lista de itens do carrinho e recalcular o preço total
         cartItemsList.innerHTML = "";
         let total = 0;
 
         cart.forEach(item => {
-            // Criar um item da lista
             const li = document.createElement("li");
             li.textContent = `${item.product} - $${item.price}`;
             cartItemsList.appendChild(li);
-
-            // Acumular o preço total
             total += parseFloat(item.price);
         });
 
-        // Atualizar o preço total
         totalPrice.textContent = `$${total.toFixed(2)}`;
     }
 
-    // Função para adicionar produtos ao carrinho
-    const addToCartButtons = document.querySelectorAll(".add-to-cart");  // Seleciona todos os botões de adicionar ao carrinho
-    addToCartButtons.forEach(button => {
+    document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", function () {
-            const product = button.getAttribute("data-product");  // Nome do produto
-            const price = button.getAttribute("data-price");  // Preço do produto
-            const image = button.getAttribute("data-image");  // Imagem do produto
+            const product = button.getAttribute("data-product");
+            const price = button.getAttribute("data-price");
+            const image = button.getAttribute("data-image");
 
-            // Adiciona o produto ao carrinho
             cart.push({ product, price, image });
-
-            // Atualiza a interface do carrinho
             updateCart();
         });
     });
 
-    // Função para redirecionar para a página do carrinho
-    const cartPageButton = document.getElementById("cart-page");
-    cartPageButton.addEventListener("click", function () {
-        // Simula a navegação para a página do carrinho
-        alert("Você foi redirecionado para a página do carrinho.");
-        // Para redirecionar para outra página, descomente a linha abaixo:
-        // window.location.href = "pagina-do-carrinho.html";  // Altere o URL para a página do carrinho
-    });
-});
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", () => {
+            let notification = document.createElement("div");
+            notification.innerHTML = "Produto adicionado ao carrinho!";
+            notification.classList.add("cart-notification");
+            document.body.appendChild(notification);
 
-document.querySelectorAll(".add-to-cart").forEach(button => {
-    button.addEventListener("click", () => {
-        let notification = document.createElement("div");
-        notification.innerHTML = "Produto adicionado ao carrinho!";
-        notification.classList.add("cart-notification");
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-            notification.remove();
-        }, 2000);
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        });
     });
+
+    function isLoggedIn() {
+        return localStorage.getItem("loggedIn") === "true";
+    }
+
+    document.getElementById("login-form")?.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username && password) {
+            localStorage.setItem("loggedIn", "true");
+            alert("Login bem-sucedido!");
+            window.location.href = "index.html";
+        } else {
+            alert("Preencha todos os campos!");
+        }
+    });
+
+    document.getElementById("logout-button")?.addEventListener("click", function () {
+        localStorage.removeItem("loggedIn");
+        alert("Você saiu da conta.");
+        window.location.href = "index.html";
+
+    });
+
 });
