@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <title>Bellany</title>
+    <meta name="theme-color" content="#563d7c">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="imgs/">
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <script>navigator.serviceWorker.register("service-worker.js")</script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">BELLANY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#produtos">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promocoes.html">Promoções</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="politica.html">Política de Privacidade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                </ul>
+                <form class="d-flex me-5" style="gap: 5px">
+                    <button class="btn btn-outline-dark" type="button" data-bs-toggle="modal"
+                        data-bs-target="#cartModal">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrinho
+                        <span id="cart-count" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                    <button class="btn btn-outline-dark ms-2" type="button" data-bs-toggle="modal"
+                        data-bs-target="#accountModal">
+                        <i class="bi-person-circle me-1"></i>
+                        Minha Conta
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-6 px-lg-5 py-2">
+            <div class="text-center text-white">
+                <img src="imgs/Bellany.png" alt="Bellany" class="img-fluid" style="max-height: 200px;">
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+                <!-- Product Card 1 -->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Link para detalhes do produto -->
+                        <a href="produto-detalhado.html?id=1" style="text-decoration: none; color: inherit;">
+                            <img class="card-img-top" src="imgs/BodyLiso.jpeg" alt="Body Regata" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">Body Regata</h5>
+                                    R$ 45,00
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark mt-auto add-to-cart" data-product="Body Regata"
+                                    data-price="R$ 45,00" data-image="imgs/BodyLiso.jpeg">
+                                    <i class="bi bi-cart-plus"></i> Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                            Promoção</div>
+                        <a href="produto-detalhado.html?id=2" style="text-decoration: none; color: inherit;">
+                            <img class="card-img-top" src="imgs/BasicaSuede.jpeg" alt="Básica Suede" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">Básica Suede</h5>
+                                    <span class="text-muted text-decoration-line-through">R$ 35,00</span>
+                                    R$ 18,00
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark mt-auto add-to-cart" data-product="Básica Suede"
+                                    data-price="R$ 18,00" data-image="imgs/BasicaSuede.jpeg">
+                                    <i class="bi bi-cart-plus"></i> Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <a href="produto-detalhado.html?id=3" style="text-decoration: none; color: inherit;">
+                            <img class="card-img-top" src="imgs/BodyEstampado1.jpeg" alt="Body Estampado" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">Body Manga longa</h5>
+                                    R$ 85,00
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark mt-auto add-to-cart" data-product="Body Manga longa"
+                                    data-price="R$ 85,00" data-image="imgs/BodyEstampado1.jpeg">
+                                    <i class="bi bi-cart-plus"></i> Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <a href="produto-detalhado.html?id=4" style="text-decoration: none; color: inherit;">
+                            <img class="card-img-top" src="imgs/MacacaoBordado.jpg" alt="Macacão" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">Macacão Bordado</h5>
+                                    R$ 120,00
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark mt-auto add-to-cart" data-product="Macacão"
+                                    data-price="R$ 120,00" data-image="imgs/MacacaoBordadojpeg">
+                                    <i class="bi bi-cart-plus"></i> Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <a href="produto-detalhado.html?id=5" style="text-decoration: none; color: inherit;">
+                            <img class="card-img-top" src="imgs/Conjunto1.jpeg" alt="Conjunto 3 peças" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">Conjunto 3 peças</h5>
+                                    R$ 110,00
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark mt-auto add-to-cart" data-product="Conjunto 3 peças"
+                                    data-price="R$ 110,00" data-image="imgs/Conjunto1.jpeg">
+                                    <i class="bi bi-cart-plus"></i> Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <a href="produto-detalhado.html?id=6" style="text-decoration: none; color: inherit;">
+                            <img class="card-img-top" src="imgs/MacaquinhoTule.jpeg" alt="Macaquinho Tule" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">Macaquinho em tule bordado</h5>
+                                    R$ 210,00
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark mt-auto add-to-cart"
+                                    data-product="Macaquinho em tule bordado" data-price="R$ 210,00"
+                                    data-image="imgs/MacaquinhoTule.jpeg">
+                                    <i class="bi bi-cart-plus"></i> Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <a href="produto-detalhado.html?id=7" style="text-decoration: none; color: inherit;">
+                            <img class="card-img-top" src="imgs/SaiaLonga.jpeg" alt="Saia Longa" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">Saia Longa</h5>
+                                    R$ 105,00
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark mt-auto add-to-cart" data-product="Saia Longa"
+                                    data-price="R$ 105,00" data-image="imgs/SaiaLonga.jpeg">
+                                    <i class="bi bi-cart-plus"></i> Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <a href="produto-detalhado.html?id=8" style="text-decoration: none; color: inherit;">
+                            <img class="card-img-top" src="imgs/ShortLinho.jpeg" alt="Short Linho" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">Short Linho</h5>
+                                    R$ 100,00
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark mt-auto add-to-cart" data-product="Short Linho"
+                                    data-price="R$ 100,00" data-image="imgs/ShortLinho.jpeg">
+                                    <i class="bi bi-cart-plus"></i> Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal-->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Carrinho</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items" class="list-group">
+                        <!-- Cart items will be inserted here dynamically -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="checkoutBtn">Finalizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login e Cadastro -->
+    <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="accountModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="accountModalLabel">Minha Conta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="loginForm">
+                        <h5>Entrar</h5>
+                        <input type="email" id="loginEmail" class="form-control mb-2" placeholder="Email">
+                        <input type="password" id="loginPassword" class="form-control mb-2" placeholder="Senha">
+                        <button class="btn btn-primary w-100" onclick="login()">Entrar</button>
+                        <p class="mt-2 text-center">
+                            <a href="#" onclick="toggleForms()">Criar uma conta</a>
+                        </p>
+                    </div>
+                    <div id="registerForm" style="display: none;">
+                        <h5>Criar Conta</h5>
+                        <input type="text" id="registerName" class="form-control mb-2" placeholder="Nome">
+                        <input type="email" id="registerEmail" class="form-control mb-2" placeholder="Email">
+                        <input type="password" id="registerPassword" class="form-control mb-2" placeholder="Senha">
+                        <button class="btn btn-success w-100" onclick="register()">Cadastrar</button>
+                        <p class="mt-2 text-center">
+                            <a href="#" onclick="toggleForms()">Já tenho uma conta</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="endereco" class="container-sm margin scrollMenu">
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <h3>Endereço e Contato:</h3>
+                    <div class="card topBcgEnd my-2"></div>
+                    <div class="container-sm">
+                        <address>
+                            <b>E-mail:</b> <a href="mailto:bellanymoda@gmail.com">bellanymoda@gmail.com</a><br>
+                            <b>Visite:</b> <a href="https://www.instagram.com/bellanymodass/">@bellanymodass</a><br>
+                            <b>Telefone: </b> (81) 98501-6654 <br>
+                            <b>Endereço: </b> Tv. do Março, 517, Aguazinha, Olinda - PE
+                        </address>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6677.5764430303625!2d-34.884702!3d-8.000469!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab178ab270eea7%3A0x56962809dd616360!2sEstr.%20de%20Aguazinha%2C%20570%20-%20Aguazinha%2C%20Olinda%20-%20PE%2C%2053270-240!5e1!3m2!1spt-PT!2sbr!4v1741582147576!5m2!1spt-PT!2sbr"
+                        width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <samp>&copy; 2025 - Todos os direitos reservados | Bellany Moda</samp>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom theme JS-->
+    <script src="js/scripts.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function (registration) {
+                        console.log('Service Worker registrado com sucesso: ', registration.scope);
+                    }, function (err) {
+                        console.log('Falha no registro do Service Worker: ', err);
+                    });
+            });
+        }
+    </script>
+
+</body>
+
+</html>
