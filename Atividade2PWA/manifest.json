@@ -6,8 +6,8 @@
     "description": "Loja de roupas femininas",
     "lang": "pt-BR",
     "dir": "auto",
-    "theme_color": "#000000",
-    "background_color": "#000000",
+    "theme_color": "#81D2F0",
+    "background_color": "#81D2F0",
     "orientation": "any",
     "icons": [
         {
